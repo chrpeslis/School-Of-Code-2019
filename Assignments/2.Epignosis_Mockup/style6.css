@@ -1,0 +1,38 @@
+.main-colored {
+    background-color: #142e47;
+    color: white;
+}
+.copyrights {
+    border-top: 0.02em solid lightgray;
+}
+.btn-primary{
+    background-color: rgb(25, 25, 112);
+    border-radius: 10px;
+    
+    align-self: center;
+}
+
+
+/*CSS for the icons*/
+
+.fa-linkedin {
+    color: #727d8e;
+}
+.fa-facebook {
+    color: #727d8e;
+}
+span.a {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+span.b {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+/*Footer */
+span.c {
+    color: #d36602;
+}

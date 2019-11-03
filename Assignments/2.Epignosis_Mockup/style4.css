@@ -1,0 +1,6 @@
+.borderless tr td, .borderless tr th{
+    padding: 80px;
+}
+.borderless td{
+    border-top: none !important;
+}

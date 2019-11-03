@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The days of the week</title>
+</head>
+<style>
+    .btn {
+        background-color: orange;
+        padding: 5px;
+        margin: 5px;
+    }
+    .btn1 {
+        background-color: green;
+        padding: 5px;
+        margin: 5px;
+    }
+</style>
+<body>
+    <h1>The Days Of The Week:</h1>
+    <p id="demo"></p>
+    <p id="day"></p>
+
+
+<script>
+"use script";
+let date = new Date();
+let daysOfWeek, text, dLen, i;
+daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+dLen = daysOfWeek.length;
+
+//Display Week Days
+text = "<ul>";
+for (i = 0; i < dLen; i++) {
+  text += "<li>" + daysOfWeek[i] + "</li>";
+}
+text += "</ul>";
+document.getElementById("demo").innerHTML = text;
+
+// Create background color for each element of the list
+const liEls = document.querySelectorAll("li");
+liEls.forEach( handleLi );
+function handleLi( currentLi, day ) {
+    if ( day === date.getDay() ){
+        currentLi.setAttribute("style", "background: green")
+    }
+    currentLi.setAttribute("class", "btn");
+    console.log( currentLi );      
+}
+</script>
+    
+</body>
+</html>

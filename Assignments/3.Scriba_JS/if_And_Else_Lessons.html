@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>If and Else</title>
+</head>
+<body>
+    <h1>Hello JS!</h1>
+
+<script>
+//Temperature in degrees of Celcium
+     let temp = 35;
+     if (temp <=10){
+        console.log("It's cold outside!");
+     } else if (temp >=11 && temp <= 28){
+         console.log("It's neither cold nor hot. Better take a jacket with you!");
+     } else if (temp>=29) {
+         console.log("It's hot outside! Better take a sunscream with you!");
+}
+//Examples with OR
+     console.log(10 === 10 || 5 < 4);
+     console.log(10 === 10 || 5 > 4);
+     console.log(10 === 10 || 5 == 4);
+     console.log(10 !== 10 || 5 < 4);
+
+//Additional examples with AND, OR
+     console.log((10 >= 10 || 2 > 4) && 3 + 4 === 7);
+     console.log((10 != 10 || 2 > 4) && 3 + 4 === 7);
+
+</script>
+    
+</body>
+</html>

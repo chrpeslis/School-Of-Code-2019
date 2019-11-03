@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Switchin</title>
+</head>
+<body>
+    <h1>Hello JS!</h1>
+
+<script>
+    let operator = '/';
+    let firstNumber = 20;
+    let secondNumber = 4;
+
+    switch (operator) {
+        case '+':
+            console.log("Addition of two numbers is: " + (firstNumber + secondNumber));
+            break;
+        case '-':
+            console.log("Substraction of two numbers is: " + (firstNumber - secondNumber));
+            break;
+        case '*':
+            console.log("Multiplication of two numbers is: " + (firstNumber * secondNumber));
+        case '/':
+            console.log("Division of two numbers is: " + (firstNumber / secondNumber));
+            break;
+        case '%':
+            console.log("Module of two numbers is: " + (firstNumber % secondNumber));
+            break;
+        default:
+            console.log("Please enter Correct operator such as +, -, *, /, %");
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+.mainbody{
+    background-color: rgb(238, 248, 248);
+}
+.btn-primary{
+    background-color: rgb(25, 25, 112);
+    border-radius: 40px;
+    align-self: center;
+    width: 5em;
+}
+.plate {
+    border-style: solid;
+    border-color: black;
+    border-left: 8px solid rgb(74, 74, 255);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+/*
+image {
+    background-color: rgb(238, 248, 248);
+}
+*/

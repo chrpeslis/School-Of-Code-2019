@@ -1,0 +1,5 @@
+.col-md-8{
+    display: inline-block;
+    flex-flow: column wrap;
+    align-self: flex-end;
+}

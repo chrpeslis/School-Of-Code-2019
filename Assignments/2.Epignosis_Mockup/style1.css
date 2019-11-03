@@ -1,0 +1,21 @@
+body{
+    background-image: url(img/background1.svg);
+    background-repeat: no-repeat;
+    background-position: 90% 0%;
+    background-size: 31%;
+    font-weight: bolder;
+    position: relative;
+}
+.card-img-top{
+    width: 40%;
+    height: 2vw;
+    object-fit: fill;
+}
+.card{
+    display: flex;
+    height: auto;
+    width: auto;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+}

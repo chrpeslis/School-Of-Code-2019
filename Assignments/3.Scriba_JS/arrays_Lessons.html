@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrays in JS</title>
+</head>
+<body>
+    <h1>Hello JS!</h1>
+
+<script>
+    let example1 = [0, 5, 7, 9];
+    console.log(example1[3]);
+    console.log(example1.length);
+
+    example1.push(4, 3, 2, 0);
+    example1.pop();
+    console.log(example1);
+
+    example1[0] = 8;
+    example1.forEach((element) => {
+        console.log(element)
+    });
+
+    let example2 = example1.map((element) => {
+        return element;
+    });
+    example2.push('Christos');
+    console.log(example2);
+</script>
+</body>
+</html>
