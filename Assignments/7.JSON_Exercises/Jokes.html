@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jokes</title>
+</head>
+<style>
+    body {
+        background-color: lightgrey;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #joke {
+        background: white;
+        padding: 10px;
+        margin-top: 3em;
+        border: 5px solid cyan;
+        box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+    }
+    form {
+        border: 1px solid gray;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: skyblue;
+    }
+
+</style>
+<body>
+    <h1>Joke API</h1>
+    <form>
+    <h2>Wanna hear a Chuck Norris joke?</h2>
+    <input type="submit"></input>
+    </form>
+    <div id="joke"></div>
+
+
+<script>
+    "use strict";
+    const URL = "https://api.chucknorris.io/jokes/random";
+
+    function handleResponse( res ){
+            console.log("Success", res);
+            return res.json(); //=> Promise
+        }
+
+    function handleData (data) {
+        const joke1 = data.value;
+        document.querySelector("#joke").innerHTML= `
+               <p>${joke1}</p>
+        `;
+    }
+
+    const form = document.querySelector("form");
+    form.addEventListener("submit", handleSubmit);
+    function handleSubmit(e) {
+        e.preventDefault();
+        fetch(URL)
+        .then(handleResponse)
+        .then(handleData);
+    }
+</script>
+</body>
+</html>
