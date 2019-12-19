@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>EventLoop | IRL | Mobile Phone Contacts Auto Suggest Mechanism</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="tryout">
+  <p>Numbers to try:</p>
+  <p><span></span></p>
+</div>
+<div class="mobile">
+  <label for="number">Send SMS</label>
+  <input autofocus type="text" id="number" name="number" placeholder="Enter telephone number">  
+</div>
+
+<div class="found"></div>
+<script>
+
+const contacts = {
+    kostas: 6986100100,
+    maria: 6986100200,
+    george: 6986300300,
+    sofia: 6986300400,
+    chris: 6987500500,
+    marina: 6944600600
+  }
+
+  document.querySelector("span").innerHTML = `<ul style="list-style-type:none;">
+    <li>6986100100</li>
+    <li>6986100200</li>
+    <li>6986100300</li>
+    <li>6986100400</li>
+    <li>6986100500</li>
+    <li>6944600600</li>
+  </ul>`;
+  
+  console.log(contacts);
+
+  document.querySelector("input").addEventListener("keyup", function(e){
+    console.log(this.value);
+    document.querySelector('.found').innerHTML=``;
+    let typed=this.value;
+    
+    console.log(typed);
+    let contentOfContacts=[];
+    for(const prop in contacts){
+      if(`${contacts[prop]}`.indexOf(typed)>-1){
+    
+        document.querySelector('.found').innerHTML += `<p>${contacts[prop]}</p>`;
+      }
+    }
+})
+
+</script>
+
+</body>
+</html>
