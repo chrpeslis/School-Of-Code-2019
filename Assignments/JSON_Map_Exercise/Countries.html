@@ -58,7 +58,8 @@
             const population = data[0].population;
             const name = data[0].name;
             const latlng = data[0].latlng;
-            const map = new ol.Map({
+            let newmap = document.querySelector("#MapSpace").innerHTML= "";
+            let map = new ol.Map({
                 target: 'MapSpace',
                 layers: [
                     new ol.layer.Tile({
@@ -78,10 +79,10 @@
                <p>Population: ${population}</p> 
             `;
     
-            function removeDiv(){
-                let map = document.getElementsByClassName("MyMap")[0];
-                map.parentNode.removeChild(map);
-            }
+            // function removeDiv(){
+            //     let map = document.getElementsByClassName("MyMap")[0];
+            //     map.parentNode.removeChild(map);
+            // }
         
         }
         // console.log(1); //For Testing Purposes
