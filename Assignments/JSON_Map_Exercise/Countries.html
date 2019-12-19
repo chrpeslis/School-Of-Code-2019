@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <title>Countries</title>
+</head>
+<style>
+    body {
+        background-color: lightgrey;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #country {
+        background: white;
+        padding: 10px;
+        border: 5px solid black;
+        box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+    }
+    form {
+        border: 1px solid gray;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: skyblue;
+    }
+    #MapSpace {
+        height: 200px;
+        width: auto;
+        border: 5px solid black;
+        padding: 10px;
+      }
+</style>
+<body>
+    <h1>Fetch API</h1>
+    <form>
+        <input type="text" placeholder="Enter country name..." id="country_name">
+        <!-- HTMLInputElement.value -->
+        <input type="submit">
+    </form>
+    <div id = "country"></div>
+    <div id= "MapSpace" class="MyMap"></div>
+    <script>
+        const URL = "https://restcountries.eu/rest/v2/name/japan";
+
+        function handleResponse( res ){
+            console.log("Success", res);
+            return res.json(); //=> Promise
+        }
+        function handleError( err ){
+            console.error("Fetch Error", err.message);
+            document.querySelector("#country").innerHTML= "<span style='color: tomato'>Error Loading Data.</span>"
+        }
+        function handleData ( data ){
+            // console.log( data );
+            const capital = data[0].capital;
+            const population = data[0].population;
+            const name = data[0].name;
+            const latlng = data[0].latlng;
+            const map = new ol.Map({
+                target: 'MapSpace',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat(latlng.reverse()),
+                    zoom: 4
+                })
+             });
+            // Using Object { Destructuring }
+            // const { capital, population, name } = data[0];
+            document.querySelector("#country").innerHTML= `
+               <p>Country: ${name}</p>
+               <p>Capital: ${capital}</p>
+               <p>Population: ${population}</p> 
+            `;
+    
+            function removeDiv(){
+                let map = document.getElementsByClassName("MyMap")[0];
+                map.parentNode.removeChild(map);
+            }
+        
+        }
+        // console.log(1); //For Testing Purposes
+
+        const form = document.querySelector("form");
+        form.addEventListener("submit",handleSubmit);
+        function handleSubmit(e){
+            e.preventDefault();
+            const input = document.querySelector("#country_name");
+            const countryName = input.value;
+            countryName.ignoreCase;
+            // console.log(countryName);
+
+            const URL = "https://restcountries.eu/rest/v2/name/" + countryName;
+            // console.log( URL);
+            
+            fetch (URL)            
+            .then( handleResponse )
+            .then( handleData )
+            .catch( handleError );
+        }
+
+        // console.log(2); //For Testing Purposes
+    </script>
+    
+</body>
+</html>
